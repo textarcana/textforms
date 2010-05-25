@@ -36,10 +36,14 @@ Control C.
 ## Forbidden Words
 
 Textforms allows you to define a dictionary of words you don't want to
-be allowed in your poems.  
+be allowed in your poems.
 
 Only a couple of example words are forbidden by default.  You can
 forbid more words by editing `lib/dictionary_of_forbidden_words`
+
+### Why forbid certain words?
+
+This practice was directly inspired by [John Ashbery](http://en.wikipedia.org/wiki/John_Ashbery), who is assiduous about avoiding the re-use of words that he has already used in the past.
 
 ## Dependencies
 
