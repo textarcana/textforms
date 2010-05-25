@@ -21,6 +21,14 @@ Poems you create will be saved in `poetry/textforms.txt`.
 If you want to save poems somewhere else, the path is set at the top
 of `lib/Compose_Verse.pm`
 
+## Forbidden Words
+
+Textforms allows you to define a dictionary of words you don't want to
+be allowed in your poems.  
+
+Only a couple of example words are forbidden by default.  You can
+forbid more words by editing `lib/dictionary_of_forbidden_words`
+
 ## Dependencies
 
 In order to run Textforms, you need the Lingua module from CPAN.
