@@ -3,9 +3,9 @@ use Test::More "no_plan";
 
 use Data::Dumper;
 
-require 'lib/gate_keeper.pl';
+require 'lib/Gate_Keeper.pm';
 
-my %d = load_dictionary('textforms/dictionary_of_commonly_used_words');
+my %d = load_dictionary('lib/dictionary_of_commonly_used_words');
 
 isa_ok(\%d, 'HASH', 'load dictionary from file');
 

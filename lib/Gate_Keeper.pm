@@ -10,23 +10,16 @@ longer want to mention at all.
 
 sub common_words_fewer_than {
 
-  my %dict = load_dictionary('textforms/dictionary_of_commonly_used_words');
-#  my %dict = load_dictionary('textforms/dictionary_of_forbidden_words');
+  my %dict = load_dictionary('lib/dictionary_of_commonly_used_words');
 
   my $limit = shift;
   my $sentence = shift;
-#  my @words = @_;
   my $count = 0;
 
   my @words = split(/ /, $sentence);
 
-
-#  print Dumper $limit;
-# print Dumper @words;
-
   foreach my $token (@words){
     $count++ if (defined $dict{$token});
-    # print Dumper $count;
     }
 
   if ($count >= $limit){
@@ -40,7 +33,7 @@ sub common_words_fewer_than {
 sub forbidden_words_fewer_than {
   my $limit = shift;
   my $sentence = shift;
-  my $dict = 'textforms/dictionary_of_forbidden_words';
+  my $dict = 'lib/dictionary_of_forbidden_words';
 
   &reject_line($dict, $limit, $sentence);
 
@@ -50,22 +43,14 @@ sub reject_line {
 
   my %dict = load_dictionary( shift );
 
-#  my %dict = %{ shift };
-
   my $limit = shift;
   my $sentence = shift;
-#  my @words = @_;
   my $count = 0;
 
   my @words = split(/ /, $sentence);
 
-
-#  print Dumper $limit;
-# print Dumper @words;
-
   foreach my $token (@words){
     $count++ if (defined $dict{$token});
-    # print Dumper $count;
     }
 
   if ($count >= $limit){
