@@ -13,6 +13,21 @@ Poems you create will be saved in `poetry/textforms.txt`.  If you want
 to save poems somewhere else, the path is set at the top of
 `lib/Compose_Verse.pm`
 
+## What kinds of poems can it generate?
+
+The following poetic forms are supported:
+
+1. Haiku
+7. Linked Haiku 
+0. Couplet
+8. Linked Couplets 
+3. Sonnet
+4. English Sonnet
+5. Italian Sonnet
+2. Quatrain 
+9. Villanelle
+10. Pantoum
+
 ## How do I stop it?
 
 The shell runs until you force it to quit by pressing
