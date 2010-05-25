@@ -2,12 +2,12 @@
 
 ## Synopsis
 
-   perl script/shell.pl
+       perl script/shell.pl
 
-A natural language (poetry) template engine that will someday grow
-powerful enough to help you produce a pantoum (see Wikipedia if you
-aren't familiar with that poetic form). Just invoke the script and it
-will launch an interactive shell.
+Textforms is an interactive poetry template engine.
+
+If you seed a random number generator with numbers, then it stands to
+reason that you should seed a poetry generator with poetry.
 
 Poems you create will be saved in `poetry/textforms.txt`.  If you want
 to save poems somewhere else, the path is set at the top of
