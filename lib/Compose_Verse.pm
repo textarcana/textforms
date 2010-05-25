@@ -4,8 +4,6 @@ my $OUT = 'poetry/textforms.txt';
 
 # the hideous guts of the verse-assembling engine are hidden below
 
-# if any arguments are given, input is printed to STDIN instead of the outfile
-# my $out = "c:/dropbox/My Dropbox/journal/textforms.txt";
 my $DEBUGGING = $ARGV[0];
 
 # declare variables
@@ -195,7 +193,6 @@ sub ask_for_line {
   my $last_line_contained_dull_words = 0;
 
   until ($line =~ /\w+/ && (forbidden_words_fewer_than($limit_for_dull_words, $line) == 1)) {
-#  until ($line =~ /\w+/) {
 
     $last_line_contained_dull_words = (forbidden_words_fewer_than($limit_for_dull_words, $line) == 0);
 

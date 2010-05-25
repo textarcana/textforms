@@ -9,17 +9,14 @@ powerful enough to help you produce a pantoum (see Wikipedia if you
 aren't familiar with that poetic form). Just invoke the script and it
 will launch an interactive shell.
 
+Poems you create will be saved in `poetry/textforms.txt`.  If you want
+to save poems somewhere else, the path is set at the top of
+`lib/Compose_Verse.pm`
+
 ## How do I stop it?
 
 The shell runs until you force it to quit by pressing
 Control C.
-
-## Where are my poems saved?
-
-Poems you create will be saved in `poetry/textforms.txt`.
-
-If you want to save poems somewhere else, the path is set at the top
-of `lib/Compose_Verse.pm`
 
 ## Forbidden Words
 
