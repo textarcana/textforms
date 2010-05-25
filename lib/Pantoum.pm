@@ -9,7 +9,7 @@ my $form = '';
 require 'lib/Compose_Verse.pm';
 require 'lib/Villanelle.pm';
 require 'lib/Single_Verse_Forms.pm';
-require 'lib/Gate_Keeper.pm';
+require 'lib/Forbidden_Words.pm';
 
 # Pantoum
 # From Wikipedia, the free encyclopedia
