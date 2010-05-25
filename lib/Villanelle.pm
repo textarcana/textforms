@@ -1,3 +1,80 @@
+sub villanelle{
+
+    my %first_line = (
+                      lines => 0, # will result in just the time stamp being printed
+                      form => "Villanelle"
+                     );
+
+    # print the time stamp and initialize the verse counter
+    compose_verse(\%first_line);
+
+    my $refrain_1 = &ask_for_line(1);
+    my $second_line  = &ask_for_line(2);
+    my $refrain_2 = &ask_for_line(3);
+
+    ++$verse_count;
+
+    my $fourth_line = &ask_for_line(1);
+    my $fifth_line = &ask_for_line(2);
+
+    ++$verse_count;
+
+    my $seventh_line = &ask_for_line(1);
+    my $eighth_line = &ask_for_line(2);
+
+    ++$verse_count;
+
+    my $tenth_line = &ask_for_line(1);
+    my $eleventh_line = &ask_for_line(2);
+
+    ++$verse_count;
+
+    my $thirteenth_line = &ask_for_line(1);
+    my $fourtheenth_line = &ask_for_line(2);
+
+    ++$verse_count;
+
+    my $sixteenth_line = &ask_for_line(1);
+    my $seventeenth_line = &ask_for_line(2);
+
+    my @poem = (
+
+                $refrain_1,
+                $second_line,
+                $refrain_2,
+                '',
+                $fourth_line,
+                $fifth_line,
+                $refrain_1,
+                '',
+                $seventh_line,
+                $eighth_line,
+                $refrain_2,
+                '',
+                $tenth_line,
+                $eleventh_line,
+                $refrain_1,
+                '',
+                $thirteenth_line,
+                $fourtheenth_line,
+                $refrain_2,
+                '',
+                $sixteenth_line,
+                $seventeenth_line,
+                $refrain_1,
+                $refrain_2
+               );
+
+
+
+    &printer_for_verse( @poem );
+
+}
+
+1;
+
+
+
 # Here is wikipedia on the form of the villanelle
 
 # A villanelle is a poetic form which entered English-language poetry
@@ -75,78 +152,3 @@
 
 # Since it is of a fixed length, the Villanelle can be treated as a
 # single verse with some blank lines.
-
-sub villanelle{
-
-    my %first_line = (
-                      lines => 0, # will result in just the time stamp being printed
-                      form => "Villanelle"
-                     );
-
-    # print the time stamp and initialize the verse counter
-    compose_verse(\%first_line);
-
-    my $refrain_1 = &ask_for_line(1);
-    my $second_line  = &ask_for_line(2);
-    my $refrain_2 = &ask_for_line(3);
-
-    ++$verse_count;
-
-    my $fourth_line = &ask_for_line(1);
-    my $fifth_line = &ask_for_line(2);
-
-    ++$verse_count;
-
-    my $seventh_line = &ask_for_line(1);
-    my $eighth_line = &ask_for_line(2);
-
-    ++$verse_count;
-
-    my $tenth_line = &ask_for_line(1);
-    my $eleventh_line = &ask_for_line(2);
-
-    ++$verse_count;
-
-    my $thirteenth_line = &ask_for_line(1);
-    my $fourtheenth_line = &ask_for_line(2);
-
-    ++$verse_count;
-
-    my $sixteenth_line = &ask_for_line(1);
-    my $seventeenth_line = &ask_for_line(2);
-
-    my @poem = (
-
-                $refrain_1,
-                $second_line,
-                $refrain_2,
-                '',
-                $fourth_line,
-                $fifth_line,
-                $refrain_1,
-                '',
-                $seventh_line,
-                $eighth_line,
-                $refrain_2,
-                '',
-                $tenth_line,
-                $eleventh_line,
-                $refrain_1,
-                '',
-                $thirteenth_line,
-                $fourtheenth_line,
-                $refrain_2,
-                '',
-                $sixteenth_line,
-                $seventeenth_line,
-                $refrain_1,
-                $refrain_2
-               );
-
-
-
-    &printer_for_verse( @poem );
-
-}
-
-1;

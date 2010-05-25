@@ -1,4 +1,4 @@
-# Single-verse forms
+# Single-verse poetic forms
 
 my %untitled_couplet = (
     no_stamp => 1,

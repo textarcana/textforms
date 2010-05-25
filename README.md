@@ -33,9 +33,6 @@ If you're on Windows and that fails, try installing
 [Strawberry Perl,](http://strawberryperl.com/ "Larry Wall recommends Strawberry Perl for Windows")
 then rerunning the command.
 
-To run the tests, say `prove t`
-
-
 ## Known Issues
 
 Don't trust the line numbers when you are composing Pantoums.  Line
