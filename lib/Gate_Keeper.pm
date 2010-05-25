@@ -8,28 +8,6 @@ longer want to mention at all.
 
 =cut
 
-sub common_words_fewer_than {
-
-  my %dict = load_dictionary('lib/dictionary_of_commonly_used_words');
-
-  my $limit = shift;
-  my $sentence = shift;
-  my $count = 0;
-
-  my @words = split(/ /, $sentence);
-
-  foreach my $token (@words){
-    $count++ if (defined $dict{$token});
-    }
-
-  if ($count >= $limit){
-    return 0;
-  }
-
-  return 1;
-
-}
-
 sub forbidden_words_fewer_than {
   my $limit = shift;
   my $sentence = shift;
