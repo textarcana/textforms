@@ -1,8 +1,6 @@
 use strict;
 use Test::More "no_plan";
 
-use Data::Dumper;
-
 require 'lib/Forbidden_Words.pm';
 
 my %d = load_dictionary('lib/dictionary_of_forbidden_words');
