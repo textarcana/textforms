@@ -1,23 +1,31 @@
 # Textforms
 
+## Synopsis
+
+   perl script/shell.pl
+
 A natural language (poetry) template engine that will someday grow
 powerful enough to help you produce a pantoum (see Wikipedia if you
-aren't familiar with that poetic form).
+aren't familiar with that poetic form). Just invoke the script and it
+will launch an interactive shell.
 
-## How to use
+## How do I stop it?
 
-    perl script/shell.pl
+The shell runs until you force it to quit by pressing
+Control C.
 
-Just invoke the script and it will launch an interactive shell.  Poems
-you create will be saved in `poetry/textforms.txt`.  
+## Where are my poems saved?
+
+Poems you create will be saved in `poetry/textforms.txt`.
 
 If you want to save poems somewhere else, the path is set at the top
-of `lib/ComposeVerse.pm`
+of `lib/Compose_Verse.pm`
 
 ## Dependencies
 
-In order to run Textforms, you need the Lingua Any Numbers module from
-CPAN.  Use the following command (you may need to `sudo`)
+In order to run Textforms, you need the Lingua module from CPAN.
+Lingua is used to display the line numbers while you are composing.
+Use the following command (you may need to `sudo`)
 
       cpan Lingua::Any::Numbers
 
@@ -25,3 +33,10 @@ If you're on Windows and that fails, try installing
 [Strawberry Perl,](http://strawberryperl.com/ "Larry Wall recommends Strawberry Perl for Windows")
 then rerunning the command.
 
+To run the tests, say `prove t`
+
+
+## Known Issues
+
+Don't trust the line numbers when you are composing Pantoums.  Line
+numbers should be correct for other poetic forms, however.
