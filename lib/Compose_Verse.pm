@@ -1,6 +1,6 @@
 # set the output directory here
 
-my $OUT = 'poetry/textforms.txt';
+my $OUT = $ENV{POETRY_FILE} || 'poetry/textforms.txt';
 
 # the hideous guts of the verse-assembling engine are hidden below
 
