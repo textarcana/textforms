@@ -10,8 +10,9 @@ If you seed a random number generator with numbers, then it stands to
 reason that you should seed a poetry generator with poetry.
 
 Poems you create will be saved in `poetry/textforms.txt`.  If you want
-to save poems somewhere else, the path is set at the top of
-`lib/Compose_Verse.pm`
+to save poems somewhere else, just put the path to the file (including the file name) in an environment variable called `POETRY_FILE`, eg:
+
+      export POETRY_FILE=~/doggerel.txt
 
 ## What kinds of poems can it generate?
 
