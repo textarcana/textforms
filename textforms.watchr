@@ -6,6 +6,10 @@
 #
 # To use fsevent on MacOS, you currently have to patch the Watchr gem as described here:
 # https://github.com/mynyml/watchr/issues/36#issuecomment-7794856
+#
+# The Devel::Cover cli was installed (by Macports) )in a directory
+#   which wasn't in my PATH.  I used "locate bin/cover" to find it.
+
 
 @growl_clients = %w{
     127.0.0.1
@@ -31,6 +35,9 @@ def check action, title, message
   puts %x{cat /tmp/#{guid}_output}
 end
 
+`which cover` or raise "Please install Devel::Cover via CPAN"
+`which prove` or raise "Please install Test::More via CPAN"
+
 # Rules
 #
 # Less specific rules should be listed first.
@@ -42,7 +49,7 @@ watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
 }
 
 watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
-  check(%{prove t},
+  check(%{PERL5OPT=-MDevel::Cover prove && cover -silent -select=lib/*},
         "Tests for #{m[2]}",
         m[1])
 }
