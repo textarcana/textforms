@@ -35,13 +35,13 @@ end
 #
 # Less specific rules should be listed first.
 
-watch( '(.*/(.*(:?pl|pm))$)' )  { |m|
+watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
   check(%{perl -c m[1]},
         "Syntax check for #{m[2]}",
         m[1])
 }
 
-watch( '(.*/(.*(:?pl|pm))$)' )  { |m|
+watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
   check(%{prove t},
         "Tests for #{m[2]}",
         m[1])
