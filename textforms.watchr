@@ -38,6 +38,9 @@ end
 `which cover` or raise "Please install Devel::Cover via CPAN"
 `which prove` or raise "Please install Test::More via CPAN"
 
+@run_coverage = %{PERL5OPT=-MDevel::Cover prove && cover -silent -select=lib/*}
+@run_the_tests = %{prove}
+
 # Rules
 #
 # Less specific rules should be listed first.
@@ -49,7 +52,7 @@ watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
 }
 
 watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
-  check(%{PERL5OPT=-MDevel::Cover prove && cover -silent -select=lib/*},
+  check(@run_the_tests,
         "Tests for #{m[2]}",
         m[1])
 }
