@@ -54,7 +54,7 @@ sub printer_for_poetry {
 
 =head2
 
-convoluted logic for querying the user and then rendering a verse
+logic for querying the user and then rendering a verse
 according to rules given in an options hash
 
 =cut
@@ -165,7 +165,7 @@ sub clear_screen(){
 }
 
 
-# Announc what kind of verse it is
+# Announce what kind of verse it is
 sub introduce_verse {
   my $form = shift;
   &clear_screen;

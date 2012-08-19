@@ -92,8 +92,7 @@ sub compose_concrete{
                    );
 
     compose_verse(\%concrete);
-}
-;
+};
 
 sub eight_couplets{
 

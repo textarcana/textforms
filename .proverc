@@ -1,9 +1,4 @@
 --color 
---timer 
---verbose 
 --trap
---shuffle
+--timer
 --state=save
-
-
-
