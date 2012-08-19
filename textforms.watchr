@@ -39,8 +39,12 @@ end
 `which cover` or raise "Please install Devel::Cover via CPAN"
 `which prove` or raise "Please install Test::More via CPAN"
 
-@code_coverage = %{PERL5OPT=-MDevel::Cover prove > /dev/null && cover -silent -select=lib/*}
-@unit_tests = %{prove -j10}
+@unit_tests = %{prove}
+
+@code_coverage = %{
+time (PERL5OPT=-MDevel::Cover prove > /dev/null && \
+      cover -silent -select=lib/*)
+}
 
 # Rules
 #
