@@ -25,20 +25,22 @@ def check action, title, message
         system %{growl -H #{host} -t 'RECOVERED OK: #{title}' -m '#{message}'}
       end
     end
+    return true
   else
     puts "\033[31;1m" + title + " FAILURE\n\t" + message + "\033[0m"
     system %{touch /tmp/#{guid}}
     @growl_clients.each do | host  |
       system %{growl -H #{host} -t 'FAIL: #{title}' -m '#{message}'}
     end
+    return false
   end
 end
 
 `which cover` or raise "Please install Devel::Cover via CPAN"
 `which prove` or raise "Please install Test::More via CPAN"
 
-@code_coverage = %{PERL5OPT=-MDevel::Cover prove && cover -silent -select=lib/*}
-@unit_tests = %{prove}
+@code_coverage = %{PERL5OPT=-MDevel::Cover prove > /dev/null && cover -silent -select=lib/*}
+@unit_tests = %{prove -j10}
 
 # Rules
 #
@@ -51,9 +53,14 @@ watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
 }
 
 watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
-  check(@unit_tests,
-        "Tests for #{m[2]}",
-        m[1])
+  status_ok = check(@unit_tests,
+                    "Tests for #{m[2]}",
+                    m[1])
+
+  if status_ok
+    puts "\n\033[32;1m" + "Code Coverage" + "\033[0m"
+    system @code_coverage
+  end
 }
 
 # Press Ctl-C to quit.
