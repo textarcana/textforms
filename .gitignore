@@ -5,3 +5,5 @@
 .prove
 poetry/textforms.txt
 cover_db/
+t/cover.css
+t/coverage.html
