@@ -10,7 +10,8 @@ $ARGV[0] = 'turn on debugging mode';
 
 my %called_ok = (
                  clear_screen => 0,
-                 pantoum => 0
+                 pantoum => 0,
+                 compose_couplet => 0
                 );
 
 sub clear_screen {
@@ -42,11 +43,11 @@ local *STDIN = $stdin;
 # entered by a user at the keyboard
 
 is(&start_command_shell, "turn on debugging mode", "user chooses to generate a couplet");
-is($called_ok{compose_couplet}, 1, "couplet generator was called exactly once");
+is($called_ok{compose_couplet}, 1, "couplet generator was called");
 is($called_ok{clear_screen}, 1, "clear_screen was called exactly once so far");
 
 is(&start_command_shell, "turn on debugging mode", "user chooses to generate a pantoum");
-is($called_ok{pantoum}, 1, "pantoum generator was called exactly once");
+is($called_ok{pantoum}, 1, "pantoum generator was called");
 is($called_ok{clear_screen}, 2, "clear_screen was called exactly twice so far");
 
 eval{ &start_command_shell };
