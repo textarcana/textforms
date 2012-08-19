@@ -17,7 +17,7 @@
 
 def check action, title, message
   guid = %x{echo '#{title}' | sha1sum - | cut -d' ' -f1}.chomp
-  if system %{set -x; #{action} > /tmp/#{guid}_output}
+  if system %{set -x; #{action}}
     if system %{test -e /tmp/#{guid}}
       puts "\033[32;1m" + title + " RECOVERY\n\t" + message + "\033[0m"
       system %{rm /tmp/#{guid}}
@@ -32,14 +32,13 @@ def check action, title, message
       system %{growl -H #{host} -t 'FAIL: #{title}' -m '#{message}'}
     end
   end
-  puts %x{cat /tmp/#{guid}_output}
 end
 
 `which cover` or raise "Please install Devel::Cover via CPAN"
 `which prove` or raise "Please install Test::More via CPAN"
 
-@run_coverage = %{PERL5OPT=-MDevel::Cover prove && cover -silent -select=lib/*}
-@run_the_tests = %{prove}
+@code_coverage = %{PERL5OPT=-MDevel::Cover prove && cover -silent -select=lib/*}
+@unit_tests = %{prove}
 
 # Rules
 #
@@ -52,7 +51,7 @@ watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
 }
 
 watch( '(.*/(.*\.(:?pl|pm|t))$)' )  { |m|
-  check(@run_the_tests,
+  check(@unit_tests,
         "Tests for #{m[2]}",
         m[1])
 }
